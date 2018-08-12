@@ -4,7 +4,8 @@
   "description": "Discord bot, features and name TBD",
   "main": "main.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "run": "node main.js"
   },
   "keywords": [
     "Discord",
