@@ -9,8 +9,24 @@ client.on('message', (msg) => {
 	const re = /^(?:#remind)/;
 	let convMsg = msg.toString();
 	let bool = re.test(convMsg);
+	let arr = convMsg.split('.');
+	let time = Number(arr[1]);
+	let unit = arr[2];
+	let timescale = {
+		's': 1,
+		'm': 60,
+		'h': 360,
+		'd': 8640
+	}
+	let convTime = time * 1000 * timescale[unit];
+	let reminderMsg = arr[3];
+	
+	const reminder = () => {
+		msg.reply(reminderMsg)
+	}
+
 	if (bool === true) {
-		msg.reply('confirmed');
+		setTimeout(reminder, convTime);
 	}
 });
 
