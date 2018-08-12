@@ -1,0 +1,16 @@
+{
+  "name": "discordbot",
+  "version": "0.0.1",
+  "description": "Discord bot, features and name TBD",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Node"
+  ],
+  "author": "John Murphy",
+  "license": "MIT"
+}
