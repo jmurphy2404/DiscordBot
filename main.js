@@ -13,3 +13,5 @@ client.on('message', (msg) => {
 });
 
 client.login('NDc3OTkxNjkwNzkyMzM3NDA4.DlEMKg.BrKk6QL0QBkvZLYI1MOVOQu26_0');
+
+//set up prefixing, set up topic bot for search feature and discussion
