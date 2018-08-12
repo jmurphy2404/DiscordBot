@@ -9,20 +9,20 @@ client.on('message', (msg) => {
 	const re = /^(?:#remind)/;
 	let convMsg = msg.toString();
 	let bool = re.test(convMsg);
-	let arr = convMsg.split('.');
+	let arr = convMsg.split('/');
 	let time = Number(arr[1]);
 	let unit = arr[2];
 	let timescale = {
-		's': 1,
-		'm': 60,
-		'h': 360,
-		'd': 8640
+		's': 1000,
+		'm': 60000,
+		'h': 3600000,
+		'd': 86400000
 	}
-	let convTime = time * 1000 * timescale[unit];
+	let convTime = time * timescale[unit];
 	let reminderMsg = arr[3];
 	
 	const reminder = () => {
-		msg.reply(reminderMsg)
+		msg.reply(`Here is your reminder after ${time}${unit}: ${reminderMsg}`);
 	}
 
 	if (bool === true) {
