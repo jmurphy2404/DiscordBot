@@ -1,5 +1,7 @@
 const Discord = require('discord.js')
+const config = require('./config.json');
 const client = new Discord.Client();
+
 
 client.on('message', (msg) => {
 	// if(msg == 'test'){
@@ -12,6 +14,6 @@ client.on('message', (msg) => {
 	}
 });
 
-client.login('NDc3OTkxNjkwNzkyMzM3NDA4.DlEMKg.BrKk6QL0QBkvZLYI1MOVOQu26_0');
+client.login(config.token);
 
 //set up prefixing, set up topic bot for search feature and discussion
