@@ -26,16 +26,17 @@ client.on('message', (msg) => {
 		}
 		setTimeout(reminder, convTime);
 	}
-	const re2 = /^(?:#clap)/;
+	  const re2 = /^(?:#clap)/;
 	let bool2 = re2.test(convMsg);
 	let arr2 = convMsg.split(' ');
-	let msgArr;
-	let clapMsg;
+	let msgArr = [];
+	let clapMsg = [];
 	let finalMsg;
-	arr2.forEach( (word) => msgArr.push(word))
+	arr2.forEach(function(word){msgArr.push(word)})
 	if (bool2 == true ) {
-		msgArr.forEach((word) => clapMsg.push('${word}CLAP') )
-		finalMsg = clapMsg.join('')
+    msgArr.splice(0,1)
+		msgArr.forEach(function(word){clapMsg.push(word)})
+		finalMsg = clapMsg.join('  ')
 		msg.reply(finalMsg)
 	}
 });
