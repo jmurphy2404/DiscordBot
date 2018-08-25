@@ -4,8 +4,7 @@ const client = new Discord.Client();
 
 
 client.on('message', (msg) => {
-	// if(msg == 'test'){
-	// 	msg.reply('pong');
+	// 	reminderbot
 	const re = /^(?:#remind)/;
 	let convMsg = msg.toString();
 	let bool = re.test(convMsg);
@@ -18,15 +17,26 @@ client.on('message', (msg) => {
 		'h': 3600000,
 		'd': 86400000
 	}
-	let convTime = time * timescale[unit];
-	let reminderMsg = arr[3];
-	
-	const reminder = () => {
-		msg.reply(`Here is your reminder after ${time}${unit}: ${reminderMsg}`);
-	}
 
-	if (bool === true) {
+	if (bool == true) {
+		let convTime = time * timescale[unit];
+		let reminderMsg = arr[3];
+		const reminder = () => {
+			msg.reply(`Here is your reminder after ${time}${unit}: ${reminderMsg}`);
+		}
 		setTimeout(reminder, convTime);
+	}
+	const re2 = /^(?:#clap)/;
+	let bool2 = re2.test(convMsg);
+	let arr2 = convMsg.split(' ');
+	let msgArr;
+	let clapMsg;
+	let finalMsg;
+	arr2.forEach( (word) => msgArr.push(word))
+	if (bool2 == true ) {
+		msgArr.forEach((word) => clapMsg.push('${word}CLAP') )
+		finalMsg = clapMsg.join('')
+		msg.reply(finalMsg)
 	}
 });
 
