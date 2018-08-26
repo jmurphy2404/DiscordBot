@@ -1,8 +1,13 @@
 const Discord = require('discord.js')
 const config = require('./config.json');
 const client = new Discord.Client();
+let ayy
 
 
+client.on('init', () => {
+	let ayy = client.emojis.find("name", "clap");
+
+})
 client.on('message', (msg) => {
 	// 	reminderbot
 	const re = /^(?:#remind)/;
@@ -26,7 +31,7 @@ client.on('message', (msg) => {
 		}
 		setTimeout(reminder, convTime);
 	}
-	  const re2 = /^(?:#clap)/;
+	const re2 = /^(?:#clap)/;
 	let bool2 = re2.test(convMsg);
 	let arr2 = convMsg.split(' ');
 	let msgArr = [];
@@ -36,7 +41,7 @@ client.on('message', (msg) => {
 	if (bool2 == true ) {
     msgArr.splice(0,1)
 		msgArr.forEach(function(word){clapMsg.push(word)})
-		finalMsg = clapMsg.join('  ')
+		finalMsg = clapMsg.join(ayy)
 		msg.reply(finalMsg)
 	}
 });
